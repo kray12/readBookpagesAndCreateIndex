@@ -1,0 +1,31 @@
+Class: indexTxt
+Properties:
+excludeWords: a Set containing words to be excluded from the index
+index: an object containing the index, with words as keys and an array of page numbers as values
+
+Methods:
+readExcludeWords(filePath: string): Set: Reads the exclude words from the file specified by filePath and returns them as a Set.
+
+readPage(filePath: string): string: Reads the page text from the file specified by filePath and returns it as a string.
+
+processPage(page: string, pageNum: number, excludeWords: Set): Processes the page text to update the index object with the words and page numbers. Excludes words in excludeWords set.
+
+getText(): Calls the readExcludeWords(), readPage(), and processPage() methods to generate the index for all pages.
+
+getOtput(): string[]: Generates the output string array based on the index object.
+
+writeOutput(output: string[], filePath: string): Writes the output array to the file specified by filePath.
+
+run(): Runs the entire indexing process.
+
+Relationships:
+indexTxt uses fs module to read and write files.
+
+File: exclude-words.txt
+Contains words to be excluded from the index, separated by newlines.
+
+Files: Page1.txt, Page2.txt, Page3.txt
+Contain the text of the book pages to be indexed.
+
+File: index.txt
+Contains the generated index, with words and page numbers in the format word: page1, page2, ....
